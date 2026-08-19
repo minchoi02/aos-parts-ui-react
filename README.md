@@ -33,3 +33,5 @@ npm run dev
 - `GET /api/v1/provider/events/{receiptNo}`
 
 API Base URL은 환경변수로 분리하는 것을 권장합니다.
+
+<img width="1893" height="1076" alt="image" src="https://github.com/user-attachments/assets/4478d240-6676-481c-a6ab-f880c7eef58f" />
