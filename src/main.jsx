@@ -182,9 +182,20 @@ function App() {
     <div className="app-shell">
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <div className="brand">
-          <div className="brand-mark">A</div>
+          <button
+            className="brand-logo"
+            onClick={() => window.location.reload()}
+            title="AOS"
+            aria-label="AOS"
+            >
+            <img
+              src="/images/logo.png"
+              alt="회사 로고"
+            />
+          </button>
+
           {!collapsed && (
-            <div>
+            <div className="brand-copy">
               <strong>AOS</strong>
               <span>교환부품 관리</span>
             </div>
