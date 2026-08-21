@@ -170,45 +170,33 @@ tbody tr.selected { background:#f6f5ff; }
 .brand {
   display: flex;
   align-items: center;
-  gap: 13px;
-  padding: 2px 8px 35px;
+  justify-content: center;
+  padding: 18px 16px;
 }
 
 .brand-logo {
-  width: 70px;
-  height: 54px;
-  min-width: 70px;
+  width: 170px;
+  height: 70px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  /* 흰색 박스 제거 */
-  border: none;
-  background: transparent;
-  box-shadow: none;
-
   padding: 0;
   margin: 0;
 
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
   cursor: pointer;
-  overflow: visible;
 }
 
 .brand-logo img {
   display: block;
-
-  width: 100%;
-  height: 100%;
-
+  width: 160px;
+  height: auto;
   object-fit: contain;
-
-  padding: 0;
-  margin: 0;
-
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease;
 }
 
 /* 로고 마우스 오버 */
@@ -236,4 +224,252 @@ tbody tr.selected { background:#f6f5ff; }
 
 .sidebar.collapsed .brand-copy {
   display: none;
+}
+
+/* =========================================
+   교환부품 이미지 - 휠 / 헤드램프 나란히
+========================================= */
+
+.part-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.part-image-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e8e9f0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.part-image {
+  position: relative;
+  width: 100%;
+  height: 125px;
+  overflow: hidden;
+  background: #f5f6fa;
+  cursor: pointer;
+}
+
+.part-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .2s ease;
+}
+
+/* 이미지 마우스 오버 */
+.clickable-image:hover .part-photo {
+  transform: scale(1.05);
+}
+
+/* 이미지 확대 안내 */
+.image-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  color: #fff;
+  background: rgba(23, 25, 45, .55);
+
+  opacity: 0;
+  transition: opacity .2s ease;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.clickable-image:hover .image-hover {
+  opacity: 1;
+}
+
+.part-image-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 10px;
+  border-top: 1px solid #f0f0f3;
+}
+
+.part-image-caption strong {
+  color: #444755;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.part-image-caption span {
+  color: #9b9daa;
+  font-size: 8px;
+}
+
+/* =========================================
+   이미지 확대 팝업
+========================================= */
+
+.image-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(15, 17, 30, 0.72);
+
+  animation: modalFadeIn .18s ease-out;
+}
+
+.image-modal {
+  width: min(720px, 90vw);
+  max-height: 90vh;
+
+  background: #fff;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, .30);
+
+  animation: modalScaleIn .18s ease-out;
+}
+
+/* 팝업 상단 */
+
+.image-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #ececf1;
+}
+
+.image-modal-header h2 {
+  margin: 4px 0 2px;
+
+  color: #202236;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.image-modal-header > div > span:last-child {
+  color: #999ca8;
+  font-size: 10px;
+}
+
+/* 닫기 버튼 */
+
+.image-modal-close {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #f5f5f8;
+  color: #656879;
+
+  font-size: 24px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: all .15s ease;
+}
+
+.image-modal-close:hover {
+  background: #eeeef4;
+  color: #202236;
+}
+
+/* 팝업 이미지 영역 */
+
+.image-modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: #f5f6fa;
+
+  min-height: 350px;
+  max-height: 65vh;
+
+  overflow: auto;
+}
+
+.image-modal-body img {
+  display: block;
+
+  width: auto;
+  max-width: 100%;
+  max-height: 60vh;
+
+  object-fit: contain;
+
+  border-radius: 10px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .10);
+}
+
+/* 팝업 하단 */
+
+.image-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 14px 20px;
+
+  border-top: 1px solid #ececf1;
+
+  background: #fff;
+}
+
+.image-modal-footer span {
+  color: #999ca8;
+  font-size: 9px;
+}
+
+/* 애니메이션 */
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(.96) translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
