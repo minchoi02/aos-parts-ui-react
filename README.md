@@ -37,5 +37,7 @@ API Base URL은 환경변수로 분리하는 것을 권장합니다.
 http://localhost:5173/</br> 
 http://192.168.0.5:5173/</br>
 </br>
-<img width="1893" height="1076" alt="image" src="https://github.com/user-attachments/assets/4478d240-6676-481c-a6ab-f880c7eef58f" /></br>
-<img width="1586" height="864" alt="image" src="https://github.com/user-attachments/assets/5f52f915-c5c0-40e1-8296-6227002980f6" />
+<img width="1870" height="942" alt="image" src="https://github.com/user-attachments/assets/c403629b-f0ee-49f6-a46b-d47be72dfbec" /></br>
+<img width="1589" height="918" alt="image" src="https://github.com/user-attachments/assets/8649ab29-e821-4fc3-914e-b0c25da5c09e" /></br>
+<img width="1872" height="932" alt="image" src="https://github.com/user-attachments/assets/c959f55c-5c80-495b-8b94-621d2b13e412" /></br>
+<img width="1873" height="938" alt="image" src="https://github.com/user-attachments/assets/db2fd172-7242-43e6-bcac-1fa1fa8790fe" />
